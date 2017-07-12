@@ -4,6 +4,7 @@
     "KeySecret": "your_secret",
     "BufferSize": 40,
     "KeyDir": "./keys",
+    "LimitNumber":20,
     "Ansible": {
         "Url": "http://octans:8000",
         "GetOctansUrl": "http://opendcp.oss-cn-shanghai.aliyuncs.com/manage_device.sh",

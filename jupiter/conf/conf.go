@@ -42,12 +42,13 @@ var (
 )
 
 type Configuration struct {
-	Password   string
-	KeyId      string
-	KeySecret  string
-	BufferSize int
-	Ansible    *Ansible
-	KeyDir     string
+	Password   	string
+	KeyId      	string
+	KeySecret  	string
+	BufferSize 	int
+	Ansible    	*Ansible
+	KeyDir     	string
+	LimitNumber 	int
 }
 
 type Ansible struct {

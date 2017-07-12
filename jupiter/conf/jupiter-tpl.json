@@ -3,6 +3,7 @@
     "KeyId": "",
     "KeySecret": "",
     "KeyDir": "./keys",
+    "LimitNumber":20,
     "Ansible": {
         "Url": "",
         "GetOctansUrl": "",

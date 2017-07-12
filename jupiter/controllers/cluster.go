@@ -28,6 +28,7 @@ import (
 	"weibo.com/opendcp/jupiter/service/bill"
 	"weibo.com/opendcp/jupiter/service/cluster"
 	"weibo.com/opendcp/jupiter/service/instance"
+	"weibo.com/opendcp/jupiter/conf"
 )
 
 // Operations about cluster
@@ -190,9 +191,14 @@ func (clusterController *ClusterController) ExpandInstances() {
 		clusterController.RespInputError()
 		return
 	}
+	limitNumber := conf.Config.LimitNumber
 	if clusterId < 1 || expandNumber < 1 {
 		beego.Error("the cluster id and expand number need to large than 0, now cluster id is", clusterId, "and expand number is", expandNumber)
 		clusterController.ApiResponse = InputParseFaildResp
+		return
+	} else if expandNumber > limitNumber {
+		beego.Error("The expand number is over the limit.","It should not be bigger than", limitNumber)
+		clusterController.RespInputError()
 		return
 	}
 	theCluster, err := cluster.GetCluster(clusterId)
